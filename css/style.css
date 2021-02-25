@@ -1,0 +1,229 @@
+:root {
+    --dark_text: hsl(229, 25%, 31%);
+    --score_text: hsl(229, 64%, 46%);
+    --header_outline: hsl(217, 16%, 45%);
+    --white: #fff;
+    --cyan_gradient: linear-gradient(0deg, hsl(189, 59%, 53%) 0%, hsl(189, 58%, 57%) 100%);
+    --yellow_gradient: linear-gradient(0deg, hsl(39, 89%, 49%) 0%, hsl(40, 84%, 53%) 100%);
+    --blue_gradient: linear-gradient(0deg, hsl(230, 89%, 62%) 0%, hsl(230, 89%, 65%) 100%);
+    --purple_gradient: linear-gradient(0deg, hsl(261, 73%, 60%) 0%, hsl(261, 72%, 63%) 100%);
+    --red_gradient: linear-gradient(0deg, hsl(349, 71%, 52%) 0%, hsl(349, 70%, 56%) 100%);
+}
+
+body {
+    margin: 0 auto;
+    background: radial-gradient(at center top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    height: 100vh;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    margin-top: 50px;
+    padding: 15px 30px;
+    border: 2px solid var(--header_outline);
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+}
+    .game__title {
+        margin-top: 5px;
+        display: flex;
+        justify-content: center;
+    }
+    .score__counter {
+        background: var(--white);
+        text-align: center;
+        padding: 12px 50px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--score_text);
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+        .score__counter > *{
+            margin: 0;
+        }
+        .score__counter > p:nth-child(2){
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--dark_text);
+        }
+.game {
+    background: url('../images/bg-pentagon.svg');
+    background-repeat: no-repeat;
+    background-position: center, bottom;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+    width: 650px;
+}
+    .center, .bottom {
+        display: flex;
+    }
+        .wrapper {
+            border-radius: 50%;
+            height: 150px;
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-box-shadow: inset 0px -8px 0px 0px rgba(0,0,0,0.3); 
+            box-shadow: inset 0px -8px 0px 0px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+        .center .wrapper:nth-child(1){
+            margin-top: 130px;
+            margin-right: 20px;
+            background: var(--cyan_gradient);
+        }
+        .center .wrapper:nth-child(2){
+            margin-bottom: 180px;
+            background: var(--yellow_gradient);
+        }
+        .center .wrapper:nth-child(3){
+            margin-top: 130px;
+            margin-left: 20px;
+            background: var(--blue_gradient);
+        }
+
+            .circle {
+                background: var(--white);
+                width: 110px;
+                height: 110px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                -webkit-box-shadow: inset 0px 6px 0px 0px rgba(0,0,0,0.2); 
+                box-shadow: inset 0px 6px 0px 0px rgba(0,0,0,0.2);
+            }
+        .bottom .wrapper:nth-child(1) {
+            background: var(--purple_gradient);
+            margin-right: 20px;
+        }
+        .bottom .wrapper:nth-child(2) {
+            background: var(--red_gradient);
+            margin-left: 20px;
+        }
+    button {
+        border: none;
+    }
+.rules {
+    width: 100%;
+    text-align: right;
+    margin-right: 150px;
+}
+    .rules__button {
+        font-size: 16px;
+        letter-spacing: 3px;
+        border-radius: 10px;
+        color: var(--white);
+        padding: 8px 42px;
+        background: transparent;
+        border: 2px solid var(--header_outline);
+        outline: none;
+        cursor: pointer;
+        transform: scaleY(1.2);
+    }
+    .rules__modal {
+        display: none;
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+        padding-top: 200px;
+        border-radius: 10px;
+    }
+        .modal__content {
+            color: var(--dark_text);
+            font-size: 30px;
+            font-weight: 700;
+            background-color: var(--white);
+            width: 340px;
+            margin: auto;
+            padding: 30px 30px 50px 30px;
+            border-radius: 10px;
+        }
+            .modal__top {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+                .close__button {
+                    cursor: pointer;
+                }
+            .modal__image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+.duel {
+    width: 1100px;
+    height: 650px;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+    .your__pick {
+        margin-left: 15%;
+    }
+    .house__pick {
+        margin-right: 15%;
+    }
+        .duel .wrapper {
+            margin-top: 50px;
+            height: 250px;
+            width: 250px;
+        }
+            .duel .wrapper .circle {
+                width: 180px;
+                height: 180px;
+            }
+            .duel .house__pick .wrapper .circle{
+                background-color: rgba(0,0,0,0.3);
+            }
+                .duel .wrapper .circle img {
+                    height: 80px;
+                }
+    .outcome {
+        margin: 0 20px;
+        display: none;
+    }
+        .outcome div:nth-child(1){
+            font-size: 50px;
+            font-weight: 700;
+            width: 220px;
+            margin-bottom: 20px;
+        }   
+            .outcome .button button {
+                width: 200px;
+                text-transform: uppercase;
+                padding: 10px 0;
+                outline: none;
+                border-radius: 5px;
+                color: var(--dark_text);
+                font-size: 16px;
+                transform: scaleY(1.2);
+                letter-spacing: 2px;
+                background: var(--white);
+                cursor: pointer;
+            }         
